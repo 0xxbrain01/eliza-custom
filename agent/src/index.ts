@@ -54,6 +54,7 @@ import { nearPlugin } from "@elizaos/plugin-near";
 import { nftGenerationPlugin } from "@elizaos/plugin-nft-generation";
 import { createNodePlugin } from "@elizaos/plugin-node";
 import { solanaPlugin } from "@elizaos/plugin-solana";
+import { InternPlugin } from "@elizaos/plugin-intern";
 import { suiPlugin } from "@elizaos/plugin-sui";
 import { TEEMode, teePlugin } from "@elizaos/plugin-tee";
 import { tonPlugin } from "@elizaos/plugin-ton";
@@ -520,6 +521,7 @@ export async function createAgent(
         character,
         // character.plugins are handled when clients are added
         plugins: [
+            InternPlugin,
             bootstrapPlugin,
             getSecret(character, "CONFLUX_CORE_PRIVATE_KEY")
                 ? confluxPlugin

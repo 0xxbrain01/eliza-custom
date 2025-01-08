@@ -1,0 +1,33 @@
+{
+  "name": "@elizaos/plugin-intern",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "publish": "npm publish --access public"
+  },
+  "dependencies": {
+    "@elizaos/core": "workspace:*",
+    "axios": "^1.6.7",
+    "bignumber": "1.1.0",
+    "bignumber.js": "9.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

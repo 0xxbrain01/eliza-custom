@@ -11,6 +11,8 @@ export const TelegramClientInterface: Client = {
             runtime,
             runtime.getSetting("TELEGRAM_BOT_TOKEN")
         );
+        elizaLogger.success(`✅ Vinh ${1111}`);
+        await tg.myCustomTelegram();
 
         await tg.start();
 

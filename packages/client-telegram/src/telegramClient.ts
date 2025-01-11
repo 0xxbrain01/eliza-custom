@@ -48,6 +48,10 @@ export class TelegramClient {
         this.messageManager.bot = this.bot;
     }
 
+    public async myCustomTelegram(): Promise<void> {
+        elizaLogger.log("vinh: myCustomTelegram");
+    }
+
     private async isGroupAuthorized(ctx: Context): Promise<boolean> {
         const config = this.runtime.character.clientConfig?.telegram;
         if (ctx.from?.id === ctx.botInfo?.id) {

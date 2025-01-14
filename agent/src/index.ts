@@ -11,7 +11,7 @@ import { SlackClientInterface } from "@elizaos/client-slack";
 import { TelegramClientInterface } from "@elizaos/client-telegram";
 import { TwitterClientInterface } from "@elizaos/client-twitter";
 // import { ReclaimAdapter } from "@elizaos/plugin-reclaim";
-import { DirectClient } from "@elizaos/client-direct";
+// import { DirectClient } from "@elizaos/client-direct";
 import { PrimusAdapter } from "@elizaos/plugin-primus";
 
 import {
@@ -103,6 +103,9 @@ import path from "path";
 import { fileURLToPath } from "url";
 import yargs from "yargs";
 import {dominosPlugin} from "@elizaos/plugin-dominos";
+
+// my custom plugin
+import { internMarketPlugin } from "intern-market";
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
@@ -708,6 +711,7 @@ export async function createAgent(
         character,
         // character.plugins are handled when clients are added
         plugins: [
+            internMarketPlugin,
             bootstrapPlugin,
             getSecret(character, "CONFLUX_CORE_PRIVATE_KEY")
                 ? confluxPlugin
@@ -786,7 +790,7 @@ export async function createAgent(
             goatPlugin,
             getSecret(character, "COINGECKO_API_KEY") ||
             getSecret(character, "COINGECKO_PRO_API_KEY")
-                ? coingeckoPlugin
+                ? null
                 : null,
             getSecret(character, "EVM_PROVIDER_URL") ? goatPlugin : null,
             getSecret(character, "ABSTRACT_PRIVATE_KEY")

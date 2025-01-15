@@ -45,9 +45,7 @@ async function fetchCoins(runtime: IAgentRuntime, includePlatform: boolean = fal
     //       vs_currencies: 'usd',
     //     },
     //   });
-    console.log("🚀 ~ fetchCoins ~ response:", response)
 
-       elizaLogger.log("vvv-provider 2");
     if (!response.data?.length) {
         throw new Error("Invalid coins data received");
     }
@@ -74,10 +72,10 @@ async function fetchWithRetry(runtime: IAgentRuntime, includePlatform: boolean =
 async function getCoins(runtime: IAgentRuntime, includePlatform: boolean = false): Promise<CoinItem[]> {
     try {
         // Try to get from cache first
-        const cached = await runtime.cacheManager.get<CoinItem[]>(CACHE_KEY);
-        if (cached) {
-            return cached;
-        }
+        // const cached = await runtime.cacheManager.get<CoinItem[]>(CACHE_KEY);
+        // if (cached) {
+        //     return cached;
+        // }
 
         // Fetch fresh data
         const coins = await fetchWithRetry(runtime, includePlatform);

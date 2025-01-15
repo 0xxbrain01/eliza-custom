@@ -13,9 +13,9 @@ import {
 } from "@elizaos/core";
 import axios from "axios";
 import { z } from "zod";
-import { getApiConfig, validateCoingeckoConfig } from "../environment";
-import { getCoinsData } from "../providers/coinProvider";
-import { getPriceTemplate } from "../templates/price";
+import { getApiConfig, validateCoingeckoConfig } from "../../environment";
+import { getCoinsData } from "../../providers/coinProvider";
+import { getPriceTemplate } from "../../templates/price";
 
 interface CurrencyData {
     [key: string]: number;
@@ -73,10 +73,7 @@ export const getPrice:Action = {
         "PRICE_LOOKUP",
         "CURRENT_PRICE",
     ],
-     validate: async (runtime: IAgentRuntime, message: Memory) => {
-        await validateCoingeckoConfig(runtime);
-        return true;
-    },
+        validate: async () => true,
     description: "Get price and basic market data for one or more specific cryptocurrencies (by name/symbol)",
     handler: async (
         runtime: IAgentRuntime,

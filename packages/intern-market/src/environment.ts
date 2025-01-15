@@ -23,6 +23,7 @@ export function getApiConfig(config: CoingeckoConfig) {
     const isPro = !!config.COINGECKO_PRO_API_KEY;
     const url="https://api.coingecko.com/api/v3";
     //"https://pro-api.coingecko.com/api/v3"
+    console.log("fucccck",config.COINGECKO_API_KEY, config.COINGECKO_PRO_API_KEY);
     return {
         baseUrl: isPro ? url : url,
         apiKey: isPro ? config.COINGECKO_PRO_API_KEY : config.COINGECKO_API_KEY,

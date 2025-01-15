@@ -11,7 +11,7 @@ export const internMarketPlugin: Plugin = {
     description: "Intern Market Plugin for Eliza",
     actions: [getPrice],
     evaluators: [],
-    providers: [categoriesProvider, coinsProvider],
+    providers: [ coinsProvider],
 };
 
 export default internMarketPlugin;

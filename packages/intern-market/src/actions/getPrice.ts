@@ -73,9 +73,8 @@ export const getPrice:Action = {
         "PRICE_LOOKUP",
         "CURRENT_PRICE",
     ],
-    validate: async (runtime: IAgentRuntime, message: Memory) => {
+     validate: async (runtime: IAgentRuntime, message: Memory) => {
         await validateCoingeckoConfig(runtime);
-        elizaLogger.log("vvv-message:", message);
         return true;
     },
     description: "Get price and basic market data for one or more specific cryptocurrencies (by name/symbol)",
@@ -86,8 +85,7 @@ export const getPrice:Action = {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        elizaLogger.log("Starting CoinGecko GET_PRICE handler...");
-        console.log("Starting CoinGecko GET_PRICE handler...");
+        elizaLogger.log("InternMarket CoinGecko GET_PRICE handler...");
 
         if (!state) {
             state = (await runtime.composeState(message)) as State;
